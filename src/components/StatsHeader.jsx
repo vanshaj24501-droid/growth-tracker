@@ -14,7 +14,7 @@ const getRankInfo = (level) => {
 export default function StatsHeader({ stats }) {
   if (!stats) return null;
   
-  const xpNeeded = stats.level * 250;
+  const xpNeeded = Math.round(350 * Math.pow(stats.level, 1.4));
   const xpPercentage = Math.min(100, Math.round((stats.xp / xpNeeded) * 100));
   const rank = getRankInfo(stats.level);
 
