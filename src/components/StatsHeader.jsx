@@ -1,22 +1,33 @@
 import React from 'react';
 import { Zap, Activity, Heart } from 'lucide-react';
 
+// Helper function to calculate Rank dynamically based on Level
+const getRankInfo = (level) => {
+  if (level >= 100) return { title: 'S-RANK HUNTER', color: 'text-red-500' };
+  if (level >= 75) return { title: 'A-RANK HUNTER', color: 'text-amber-400' };
+  if (level >= 50) return { title: 'B-RANK HUNTER', color: 'text-purple-400' };
+  if (level >= 25) return { title: 'C-RANK HUNTER', color: 'text-cyan-400' };
+  if (level >= 10) return { title: 'D-RANK HUNTER', color: 'text-orange-400' };
+  return { title: 'E-RANK HUNTER', color: 'text-slate-400' };
+};
+
 export default function StatsHeader({ stats }) {
   if (!stats) return null;
   
   const xpNeeded = stats.level * 250;
   const xpPercentage = Math.min(100, Math.round((stats.xp / xpNeeded) * 100));
+  const rank = getRankInfo(stats.level);
 
   return (
     <div className="system-window p-4 rounded-lg mb-6 border-cyan-500/50 shadow-glow-cyan">
       <div className="flex justify-between items-center mb-3">
         <div>
           <span className="text-xs text-cyan-400 font-bold tracking-widest uppercase">[ SYSTEM PLAYER STATUS ]</span>
-          <h1 className="text-2xl font-bold tracking-wide text-white">Vanshaj</h1>
+          <h1 className="text-2xl font-bold tracking-wide text-white">VANSHAJ</h1>
         </div>
         <div className="text-right">
           <span className="text-xs text-purple-400 font-bold uppercase">RANK</span>
-          <div className="text-xl font-bold text-purple-300">E-RANK HUNTER</div>
+          <div className={`text-xl font-bold ${rank.color}`}>{rank.title}</div>
         </div>
       </div>
 
