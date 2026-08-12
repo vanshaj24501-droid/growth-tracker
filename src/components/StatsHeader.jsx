@@ -12,7 +12,7 @@ export default function StatsHeader({ stats }) {
       <div className="flex justify-between items-center mb-3">
         <div>
           <span className="text-xs text-cyan-400 font-bold tracking-widest uppercase">[ SYSTEM PLAYER STATUS ]</span>
-          <h1 className="text-2xl font-bold tracking-wide text-white">PLAYER</h1>
+          <h1 className="text-2xl font-bold tracking-wide text-white">Vanshaj</h1>
         </div>
         <div className="text-right">
           <span className="text-xs text-purple-400 font-bold uppercase">RANK</span>
